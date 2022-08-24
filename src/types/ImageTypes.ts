@@ -1,4 +1,4 @@
-export interface ImageTypes {
+export interface ImageType {
     id: string
     likes: number
     urls: ImageUrls

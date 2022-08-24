@@ -1,26 +1,33 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ImageTypes } from '../types/ImageTypes';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { ImageType } from '../types/ImageTypes';
 
 const initialState = {
-    images: [] as ImageTypes[],
+    images: [] as ImageType[],
     currentPage: 1,
     pageSize: 20,
-    totalImages: 0
+    totalCountImages: 0,
+    isFetching: false
 };
 
 export const imagesSlice = createSlice({
     name: 'images',
     initialState,
     reducers: {
-        setImagesList: (state, action) => {
+        setImagesList: (state, action: PayloadAction<ImageType[]>) => {
             state.images = action.payload
         },
-        setTotalImages: (state, action) => {
-            state.totalImages = action.payload
+        setTotalCountImages: (state, action: PayloadAction<number>) => {
+            state.totalCountImages = action.payload
+        },
+        toggleIsFetching: (state, action: PayloadAction<boolean>) => {
+            state.isFetching = action.payload
+        },
+        setCurrentPage: (state, action: PayloadAction<number>) => {
+            state.currentPage = action.payload
         }
     },
 });
 
 export default imagesSlice.reducer;
 
-export const {setImagesList, setTotalImages} = imagesSlice.actions
+export const {setImagesList, setTotalCountImages, toggleIsFetching, setCurrentPage} = imagesSlice.actions
