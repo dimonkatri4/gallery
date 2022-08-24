@@ -25,5 +25,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-floating-promises': 0
   }
 }
