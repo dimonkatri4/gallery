@@ -10,12 +10,19 @@ module.exports = {
   ],
   overrides: [
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+      experimentalObjectRestSpread: true
+    },
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
+    project: './tsconfig.json'
   },
   plugins: [
-    'react'
+    'react',
+    '@typescript-eslint',
   ],
   rules: {
   }
