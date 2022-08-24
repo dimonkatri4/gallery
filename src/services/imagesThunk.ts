@@ -3,7 +3,7 @@ import { setImagesList, setTotalCountImages, toggleIsFetching } from "../store/i
 import {AppDispatch} from "../store/store";
 
 
-export const getImagesList = (currentPage = 1, pageSize: number) => async (dispatch: AppDispatch) => {
+export const fetchImagesList = (currentPage = 1, pageSize: number) => async (dispatch: AppDispatch) => {
     dispatch(toggleIsFetching(true))
     const data = await getPageOfImages(pageSize, currentPage)
     dispatch(toggleIsFetching(false))
