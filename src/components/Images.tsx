@@ -4,7 +4,7 @@ import {useAppDispatch} from "../hooks/redux";
 import {useSelector} from "react-redux";
 import {getCurrentPage, getImagesList, getPageSize} from "../store/selectors/imagesSelectors";
 import ImageItem from "./ImageItem";
-import {ImageList, Pagination} from "@mui/material";
+import {CircularProgress, ImageList, Pagination} from "@mui/material";
 import { setCurrentPage } from '../store/imagesSlice';
 import {getPageCount} from "../store/selectors/paginationSelectors";
 
@@ -23,6 +23,12 @@ const Images = () => {
     const handleChangePage = (event:ChangeEvent<unknown>, value: number): void => {
         dispatch(setCurrentPage(value))
     };
+
+    if(imagesList.length === 0) {
+        return <div style={{display: "flex", justifyContent:'center'}}>
+            <CircularProgress />
+        </div>
+    }
 
     return (
         <div>

@@ -13,5 +13,6 @@ export const fetchImagesList = (currentPage = 1, pageSize: number) => async (dis
         dispatch(setTotalCountImages(totalCountImages))
     } catch (e) {
         console.log(e)
+        alert('Error. Reload the page.')
     }
 }
