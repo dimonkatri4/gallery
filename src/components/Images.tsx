@@ -31,7 +31,7 @@ const Images = () => {
                        rowHeight={180}
                        gap={10}
             >
-                {imagesList.map(i => <ImageItem src={i.urls.small} key={i.id}/>)}
+                {imagesList.map(i => <ImageItem src={i.urls.small} key={i.id} id={i.id}/>)}
             </ImageList>
             <Pagination
                 onChange={handleChangePage}

@@ -3,6 +3,7 @@ export interface ImageType {
     likes: number
     urls: ImageUrls
     user: User
+    description: string | null
 }
 
 export interface ImageUrls {
