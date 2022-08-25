@@ -4,11 +4,11 @@ import {useAppDispatch} from "../hooks/redux";
 import {useSelector} from "react-redux";
 import {getCurrentPage, getImagesList, getPageSize} from "../store/selectors/imagesSelectors";
 import ImageItem from "./ImageItem";
-import {Pagination} from "@mui/material";
+import {ImageList, Pagination} from "@mui/material";
 import { setCurrentPage } from '../store/imagesSlice';
 import {getPageCount} from "../store/selectors/paginationSelectors";
 
-const ImagesList = () => {
+const Images = () => {
 
     const dispatch = useAppDispatch()
     const currentPage = useSelector(getCurrentPage)
@@ -26,17 +26,22 @@ const ImagesList = () => {
 
     return (
         <div>
-            <div style={{display: 'flex',flexWrap: 'wrap', justifyContent: 'center'}}>
+            <ImageList variant="woven"
+                       cols={4}
+                       rowHeight={180}
+                       gap={10}
+            >
                 {imagesList.map(i => <ImageItem src={i.urls.small} key={i.id}/>)}
-            </div>
+            </ImageList>
             <Pagination
                 onChange={handleChangePage}
                 page={currentPage}
                 count={pageCount}
-                size='large'
+                size='medium'
+                sx={{display: 'flex', justifyContent: 'center', m: '2rem'}}
             />
         </div>
     );
 };
 
-export default ImagesList;
+export default Images;
