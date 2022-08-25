@@ -20,4 +20,5 @@ export interface User {
     id: string
     instagram_username: string
     last_name: string | null
+    name: string
 }

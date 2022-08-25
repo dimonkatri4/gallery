@@ -14,7 +14,18 @@ const Header = () => {
                     borderRadius: '0 0 10px 10px'
                 }
             }>
-                <img src={logo} alt='logo' style={{height: '70px', width: '200px', padding: '5px'}}/>
+                <a href='/'>
+                <img
+                    src={logo}
+                    alt='logo'
+                    style={
+                        {
+                            height: '70px',
+                            width: '200px',
+                            padding: '5px'
+                        }
+                    }/>
+                </a>
             </AppBar>
 
         </>

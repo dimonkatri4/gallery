@@ -19,7 +19,7 @@ function App() {
             </Container>
             <ModalWindow>
                 <div>
-                    {openedImage && <img src={openedImage.urls.regular} style={{height:'40rem'}}/>}
+                    {openedImage !== null && <img src={openedImage.urls.regular} style={{height:'40rem'}}/>}
                 </div>
             </ModalWindow>
         </>
