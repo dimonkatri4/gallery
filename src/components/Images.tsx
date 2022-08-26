@@ -2,7 +2,7 @@ import React, { ChangeEvent, useEffect } from 'react';
 import { fetchImagesList } from '../services/imagesThunk';
 import { useAppDispatch } from '../hooks/redux';
 import { useSelector } from 'react-redux';
-import { getCurrentPage, getImagesList, getPageSize } from '../store/selectors/imagesSelectors';
+import {getCurrentPage, getImagesList, getIsFetching, getPageSize} from '../store/selectors/imagesSelectors';
 import ImageItem from './ImageItem';
 import { CircularProgress, ImageList, Pagination } from '@mui/material';
 import { setCurrentPage } from '../store/imagesSlice';
@@ -14,6 +14,7 @@ const Images = () => {
     const pageSize = useSelector(getPageSize);
     const imagesList = useSelector(getImagesList);
     const pageCount = useSelector(getPageCount);
+    const isFetching = useSelector(getIsFetching)
 
     useEffect(() => {
         dispatch(fetchImagesList(currentPage, pageSize));
@@ -23,7 +24,7 @@ const Images = () => {
         dispatch(setCurrentPage(value));
     };
 
-    if (imagesList.length === 0) {
+    if (imagesList.length === 0 || isFetching) {
         return (
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <CircularProgress />
