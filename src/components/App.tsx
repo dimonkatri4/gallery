@@ -20,13 +20,13 @@ function App() {
                 <div>
                     {openedImage !== null && (
                         <img
+                            className='openedImage'
                             src={openedImage.urls.regular}
                             alt={
                                 openedImage.description !== null
                                     ? openedImage.description
                                     : openedImage.user.name
                             }
-                            style={{ height: '40rem' }}
                         />
                     )}
                 </div>
